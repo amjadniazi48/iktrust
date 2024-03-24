@@ -1083,7 +1083,13 @@ export interface ApiPostPost extends Schema.CollectionType {
       'manyToMany',
       'api::category.category'
     >;
-    type: Attribute.Enumeration<['Blog', 'Highlights', 'Upcoming']> &
+    type: Attribute.Enumeration<
+      [
+        '\u062A\u0627\u0632\u06C1 \u062A\u0631\u06CC\u0646',
+        '\u0633\u0631\u06AF\u0631\u0645\u06CC\u0627\u06BA',
+        'Upcoming'
+      ]
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
