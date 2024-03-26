@@ -1004,6 +1004,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1017,6 +1018,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       'manyToMany',
       'api::post.post'
     >;
+    slug: Attribute.UID<'api::category.category', 'title'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1083,13 +1085,7 @@ export interface ApiPostPost extends Schema.CollectionType {
       'manyToMany',
       'api::category.category'
     >;
-    type: Attribute.Enumeration<
-      [
-        '\u062A\u0627\u0632\u06C1 \u062A\u0631\u06CC\u0646',
-        '\u0633\u0631\u06AF\u0631\u0645\u06CC\u0627\u06BA',
-        'Upcoming'
-      ]
-    > &
+    type: Attribute.Enumeration<['Revolving Slider', 'Static Slider']> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
