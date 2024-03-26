@@ -1085,7 +1085,7 @@ export interface ApiPostPost extends Schema.CollectionType {
       'manyToMany',
       'api::category.category'
     >;
-    type: Attribute.Enumeration<['Revolving Slider', 'Static Slider']> &
+    type: Attribute.Enumeration<['Revolving Slider', 'Static Slider', 'None']> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

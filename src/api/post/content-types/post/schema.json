@@ -76,7 +76,8 @@
       "type": "enumeration",
       "enum": [
         "Revolving Slider",
-        "Static Slider"
+        "Static Slider",
+        "None"
       ],
       "pluginOptions": {
         "i18n": {
