@@ -52,14 +52,6 @@
         }
       }
     },
-    "slider": {
-      "type": "boolean",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "tags": {
       "type": "relation",
       "relation": "manyToMany",
@@ -75,9 +67,9 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "Revolving Slider",
-        "Static Slider",
-        "None"
+        "RevolvingSlider",
+        "StaticSlider",
+        "NormalPost"
       ],
       "pluginOptions": {
         "i18n": {

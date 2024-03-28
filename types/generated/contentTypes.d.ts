@@ -1073,19 +1073,15 @@ export interface ApiPostPost extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    slider: Attribute.Boolean &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     tags: Attribute.Relation<'api::post.post', 'manyToMany', 'api::tag.tag'>;
     categories: Attribute.Relation<
       'api::post.post',
       'manyToMany',
       'api::category.category'
     >;
-    type: Attribute.Enumeration<['Revolving Slider', 'Static Slider', 'None']> &
+    type: Attribute.Enumeration<
+      ['RevolvingSlider', 'StaticSlider', 'NormalPost']
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
