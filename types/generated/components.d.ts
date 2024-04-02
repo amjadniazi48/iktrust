@@ -11,10 +11,23 @@ export interface SeoInfoSeo extends Schema.Component {
   };
 }
 
+export interface SharedReport extends Schema.Component {
+  collectionName: 'components_shared_reports';
+  info: {
+    displayName: 'Report';
+    icon: 'file';
+  };
+  attributes: {
+    file: Attribute.Media & Attribute.Required;
+    cover: Attribute.Media;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'seo-info.seo': SeoInfoSeo;
+      'shared.report': SharedReport;
     }
   }
 }

@@ -1061,12 +1061,6 @@ export interface ApiPostPost extends Schema.CollectionType {
         };
       }>;
     slug: Attribute.UID<'api::post.post', 'title'>;
-    description: Attribute.Blocks &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     image: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1082,6 +1076,12 @@ export interface ApiPostPost extends Schema.CollectionType {
     type: Attribute.Enumeration<
       ['RevolvingSlider', 'StaticSlider', 'NormalPost']
     > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.RichText &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1137,6 +1137,79 @@ export interface ApiPostSliderPostSlider extends Schema.SingleType {
   };
 }
 
+export interface ApiPublicationPublication extends Schema.CollectionType {
+  collectionName: 'publications';
+  info: {
+    singularName: 'publication';
+    pluralName: 'publications';
+    displayName: 'Publication';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.UID<'api::publication.publication', 'title'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Report: Attribute.Component<'shared.report'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PublicationSlider: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::publication.publication',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::publication.publication',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::publication.publication',
+      'oneToMany',
+      'api::publication.publication'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -1186,6 +1259,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::post.post': ApiPostPost;
       'api::post-slider.post-slider': ApiPostSliderPostSlider;
+      'api::publication.publication': ApiPublicationPublication;
       'api::tag.tag': ApiTagTag;
     }
   }
