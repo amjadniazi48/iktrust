@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "amam_khmyny_trsts",
+  "info": {
+    "singularName": "amam-khmyny-trst",
+    "pluralName": "amam-khmyny-trsts",
+    "displayName": "امام خمینی ٹرسٹ"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

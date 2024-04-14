@@ -998,6 +998,38 @@ export interface PluginNavigationNavigationsItemsRelated
   };
 }
 
+export interface ApiAmamKhmynyTrstAmamKhmynyTrst extends Schema.SingleType {
+  collectionName: 'amam_khmyny_trsts';
+  info: {
+    singularName: 'amam-khmyny-trst';
+    pluralName: 'amam-khmyny-trsts';
+    displayName: '\u0627\u0645\u0627\u0645 \u062E\u0645\u06CC\u0646\u06CC \u0679\u0631\u0633\u0679';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText;
+    media: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::amam-khmyny-trst.amam-khmyny-trst',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::amam-khmyny-trst.amam-khmyny-trst',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -1256,6 +1288,7 @@ declare module '@strapi/types' {
       'plugin::navigation.navigation': PluginNavigationNavigation;
       'plugin::navigation.navigation-item': PluginNavigationNavigationItem;
       'plugin::navigation.navigations-items-related': PluginNavigationNavigationsItemsRelated;
+      'api::amam-khmyny-trst.amam-khmyny-trst': ApiAmamKhmynyTrstAmamKhmynyTrst;
       'api::category.category': ApiCategoryCategory;
       'api::post.post': ApiPostPost;
       'api::post-slider.post-slider': ApiPostSliderPostSlider;
