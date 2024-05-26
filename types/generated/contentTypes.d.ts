@@ -1117,6 +1117,12 @@ export interface ApiPostPost extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    type: Attribute.Enumeration<['static', 'revolving', 'normal']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

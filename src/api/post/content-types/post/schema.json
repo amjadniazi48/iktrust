@@ -71,6 +71,19 @@
         }
       },
       "type": "boolean"
+    },
+    "type": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "static",
+        "revolving",
+        "normal"
+      ]
     }
   }
 }
