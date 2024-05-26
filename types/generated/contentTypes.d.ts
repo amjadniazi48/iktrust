@@ -1242,6 +1242,70 @@ export interface ApiRevolvingSliderRevolvingSlider
   };
 }
 
+export interface ApiStaticsliderStaticslider extends Schema.CollectionType {
+  collectionName: 'staticsliders';
+  info: {
+    singularName: 'staticslider';
+    pluralName: 'staticsliders';
+    displayName: 'Staticslider';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.UID<'api::staticslider.staticslider', 'title'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::staticslider.staticslider',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::staticslider.staticslider',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::staticslider.staticslider',
+      'oneToMany',
+      'api::staticslider.staticslider'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -1352,6 +1416,7 @@ declare module '@strapi/types' {
       'api::post.post': ApiPostPost;
       'api::publication.publication': ApiPublicationPublication;
       'api::revolving-slider.revolving-slider': ApiRevolvingSliderRevolvingSlider;
+      'api::staticslider.staticslider': ApiStaticsliderStaticslider;
       'api::tag.tag': ApiTagTag;
       'api::video.video': ApiVideoVideo;
     }
