@@ -56,19 +56,6 @@
       "target": "api::category.category",
       "mappedBy": "posts"
     },
-    "type": {
-      "type": "enumeration",
-      "enum": [
-        "RevolvingSlider",
-        "StaticSlider",
-        "NormalPost"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "description": {
       "pluginOptions": {
         "i18n": {
@@ -76,6 +63,14 @@
         }
       },
       "type": "richtext"
+    },
+    "Latest": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean"
     }
   }
 }
