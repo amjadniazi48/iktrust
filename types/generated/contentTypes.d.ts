@@ -1003,7 +1003,8 @@ export interface ApiAmamKhmynyTrstAmamKhmynyTrst extends Schema.SingleType {
   info: {
     singularName: 'amam-khmyny-trst';
     pluralName: 'amam-khmyny-trsts';
-    displayName: '\u0627\u0645\u0627\u0645 \u062E\u0645\u06CC\u0646\u06CC \u0679\u0631\u0633\u0679';
+    displayName: 'About Us';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1011,7 +1012,7 @@ export interface ApiAmamKhmynyTrstAmamKhmynyTrst extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     description: Attribute.RichText;
-    media: Attribute.Media;
+    media: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1023,6 +1024,36 @@ export interface ApiAmamKhmynyTrstAmamKhmynyTrst extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::amam-khmyny-trst.amam-khmyny-trst',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBannerBanner extends Schema.SingleType {
+  collectionName: 'banners';
+  info: {
+    singularName: 'banner';
+    pluralName: 'banners';
+    displayName: 'Banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bannerimage: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::banner.banner',
       'oneToOne',
       'admin::user'
     > &
@@ -1044,7 +1075,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     description: Attribute.Blocks;
-    image: Attribute.Media;
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     posts: Attribute.Relation<
       'api::category.category',
       'manyToMany',
@@ -1093,7 +1124,7 @@ export interface ApiPostPost extends Schema.CollectionType {
         };
       }>;
     slug: Attribute.UID<'api::post.post', 'title'>;
-    image: Attribute.Media &
+    image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1212,104 +1243,6 @@ export interface ApiPublicationPublication extends Schema.CollectionType {
   };
 }
 
-export interface ApiRevolvingSliderRevolvingSlider
-  extends Schema.CollectionType {
-  collectionName: 'revolving_sliders';
-  info: {
-    singularName: 'revolving-slider';
-    pluralName: 'revolving-sliders';
-    displayName: 'RevolvingSlider';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    slug: Attribute.UID<'api::revolving-slider.revolving-slider', 'title'>;
-    description: Attribute.RichText;
-    image: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::revolving-slider.revolving-slider',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::revolving-slider.revolving-slider',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiStaticsliderStaticslider extends Schema.CollectionType {
-  collectionName: 'staticsliders';
-  info: {
-    singularName: 'staticslider';
-    pluralName: 'staticsliders';
-    displayName: 'Staticslider';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    slug: Attribute.UID<'api::staticslider.staticslider', 'title'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.RichText &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::staticslider.staticslider',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::staticslider.staticslider',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::staticslider.staticslider',
-      'oneToMany',
-      'api::staticslider.staticslider'
-    >;
-    locale: Attribute.String;
-  };
-}
-
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -1416,11 +1349,10 @@ declare module '@strapi/types' {
       'plugin::navigation.navigation-item': PluginNavigationNavigationItem;
       'plugin::navigation.navigations-items-related': PluginNavigationNavigationsItemsRelated;
       'api::amam-khmyny-trst.amam-khmyny-trst': ApiAmamKhmynyTrstAmamKhmynyTrst;
+      'api::banner.banner': ApiBannerBanner;
       'api::category.category': ApiCategoryCategory;
       'api::post.post': ApiPostPost;
       'api::publication.publication': ApiPublicationPublication;
-      'api::revolving-slider.revolving-slider': ApiRevolvingSliderRevolvingSlider;
-      'api::staticslider.staticslider': ApiStaticsliderStaticslider;
       'api::tag.tag': ApiTagTag;
       'api::video.video': ApiVideoVideo;
     }

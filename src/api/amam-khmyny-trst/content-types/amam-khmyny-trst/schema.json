@@ -4,7 +4,8 @@
   "info": {
     "singularName": "amam-khmyny-trst",
     "pluralName": "amam-khmyny-trsts",
-    "displayName": "امام خمینی ٹرسٹ"
+    "displayName": "About Us",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,14 +19,15 @@
       "type": "richtext"
     },
     "media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }

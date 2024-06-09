@@ -18,8 +18,8 @@ export interface SharedReport extends Schema.Component {
     icon: 'file';
   };
   attributes: {
-    file: Attribute.Media & Attribute.Required;
-    cover: Attribute.Media;
+    file: Attribute.Media<'files'> & Attribute.Required;
+    cover: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
