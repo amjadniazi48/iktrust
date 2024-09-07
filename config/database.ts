@@ -1,6 +1,6 @@
 //for local server following code is used
 //Please be alert while pushing the code
-//===============changes for the local database ===============//
+// //===============changes in the  local machine ===============//
 
 // module.exports = ({ env }) => ({
 //   connection: {
@@ -15,7 +15,7 @@
 //     },
 //   },
 // });
-//+++++++++++++++++++++++++++++changes for the server database ++++++++++++++++++++
+// //+++++++++++++++++++++++++++++changes for the server database from local machine ++++++++++++++++++++
 
 // module.exports = ({ env }) => ({
 //   connection: {
@@ -31,7 +31,7 @@
 //   },
 // });
 
-////////////////for railway server following code is used//////////
+// ////////////////for railway server following code is used//////////
 import path from 'path';
 
 export default ({ env }) => {
