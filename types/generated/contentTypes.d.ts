@@ -1100,6 +1100,37 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiPayamPayam extends Schema.SingleType {
+  collectionName: 'payams';
+  info: {
+    singularName: 'payam';
+    pluralName: 'payams';
+    displayName: 'Payam';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media<'images'>;
+    url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::payam.payam',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::payam.payam',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPostPost extends Schema.CollectionType {
   collectionName: 'posts';
   info: {
@@ -1352,6 +1383,7 @@ declare module '@strapi/types' {
       'api::amam-khmyny-trst.amam-khmyny-trst': ApiAmamKhmynyTrstAmamKhmynyTrst;
       'api::banner.banner': ApiBannerBanner;
       'api::category.category': ApiCategoryCategory;
+      'api::payam.payam': ApiPayamPayam;
       'api::post.post': ApiPostPost;
       'api::publication.publication': ApiPublicationPublication;
       'api::tag.tag': ApiTagTag;

@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "payams",
+  "info": {
+    "singularName": "payam",
+    "pluralName": "payams",
+    "displayName": "Payam"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
