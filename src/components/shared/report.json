@@ -2,27 +2,26 @@
   "collectionName": "components_shared_reports",
   "info": {
     "displayName": "Report",
-    "icon": "file"
+    "icon": "file",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "file": {
-      "allowedTypes": [
-        "files"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
     },
     "cover": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
       "type": "media",
-      "multiple": false
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
